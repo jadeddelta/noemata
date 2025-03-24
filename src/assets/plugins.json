@@ -1,0 +1,33 @@
+{
+    "base": [
+        {
+            "name": "animation",
+            "description": "jsPsych plugin for showing animations and recording keyboard responses.",
+            "author": "Josh de Leeuw",
+            "version": "2.1.0"
+        },
+        {
+            "name": "audio-button-response",
+            "description": "jsPsych plugin for playing audio and getting a button response.",
+            "author": "Josh de Leeuw",
+            "version": "2.1.0"
+        },
+        {
+            "name": "audio-keyboard-response",
+            "description": "jsPsych plugin for playing audio and getting a keyboard response.",
+            "author": "Josh de Leeuw",
+            "version": "2.1.0"
+        }
+    ],
+    "contrib": [
+        {
+            
+        }
+    ],
+    "timelines": [
+
+    ],
+    "custom": [
+        
+    ]
+}

@@ -1,0 +1,53 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.plugin-box {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    background-color: #bebebe;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.plugin-box:hover {
+    transform: scale(1.025);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.plugin-box p {
+    font-size: 0.8em;
+}
+
+.plugin-box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.plugin-title {
+    font-size: 1em !important;
+}
+
+.plugin-version {
+    font-size: 0.8em;
+    color: #666;
+}
+
+.plugin-description {
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.plugin-author {
+    font-size: 0.8em;
+    color: #666;
+}

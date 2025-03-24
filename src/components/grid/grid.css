@@ -1,0 +1,10 @@
+.grid {
+    background: #333;
+    background-image: linear-gradient(
+        rgb(31, 31, 31) .1em,
+        transparent .1em        
+    ), linear-gradient(90deg, rgb(31, 31, 31) .1em, transparent .1em);
+    background-size: 100% 3em, 3em 100%;
+    width: 80vw;
+    height: 100vh;
+}
