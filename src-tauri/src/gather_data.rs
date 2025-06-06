@@ -1,9 +1,11 @@
-use crate::{github_api::{fetch_content_from_link, fetch_dir_contents, fetch_content}, plugin_cache::PluginCache, plugin_data::PluginData};
-use chrono::format;
+use crate::{
+    github_api::{fetch_content, fetch_dir_contents},
+    plugin_cache::PluginCache,
+    plugin_data::PluginData,
+};
 use log::{error, info};
 use reqwest::Client;
 use serde_json::Value;
-use tauri::AppHandle;
 
 pub async fn get_repo_plugins(
     plugin_cache: &mut PluginCache,
@@ -16,7 +18,6 @@ pub async fn get_repo_plugins(
             return Err(e);
         }
     };
-
 
     info!("got {} items from repository!", contents.len());
     for item in contents {
@@ -31,17 +32,26 @@ pub async fn get_repo_plugins(
             "jspsych",
             "jsPsych",
             &format!("{}/package.json", item.path),
-        ).await.map_err(|e| e.to_string())?;
+        )
+        .await
+        .map_err(|e| e.to_string())?;
 
         let plugin_json: Value = serde_json::from_str(&content)?;
+        let origin = "jspsych".to_string();
         let version = plugin_json["version"].as_str().map(|s| s.to_string());
         let author = plugin_json["author"].as_str().map(|s| s.to_string());
         let description = plugin_json["description"].as_str().map(|s| s.to_string());
 
-        info!("plugin {}, version: {:?}, author: {:?}, description: {:?}", item.name, version, author, description);
-        let plugin_data = PluginData::new(item.name, version, author, description);
+        info!(
+            "plugin {}, origin: {:?}, version: {:?}, author: {:?}, description: {:?}",
+            item.name, origin, version, author, description
+        );
+        let plugin_data = PluginData::new(item.name, origin, version, author, description);
         plugin_cache.update_plugin(plugin_data);
     }
 
     Ok(())
 }
+
+// todo
+pub async fn populate_parameters() {}

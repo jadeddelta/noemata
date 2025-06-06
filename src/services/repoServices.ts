@@ -28,3 +28,11 @@ export async function getPluginsJson(): Promise<any> {
         throw error;
     }
 }
+
+export type PluginData = {
+  name: string;
+  origin: string;
+  version: string;
+  author: string;
+  description: string;
+}

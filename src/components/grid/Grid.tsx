@@ -15,15 +15,18 @@ export default function Grid() {
     return (
         <div className="grid">
             <input type="text" id="meow" placeholder="Search plugins" />
-            <button className="search-button" onClick={async (e) => {await getData(
+            <button className="search-button" onClick={async () => {await getData(
                 (document.getElementById('meow') as HTMLInputElement).value
             )}}>Search</button>
             <div id="woof">
                 hi
             </div>
-            <button className="update-setup" onClick={async (e) => {
+            <button className="update-setup" onClick={async () => {
                 await updatePluginCache();
             }}>Update Plugin Cache</button>
+            <button className="update-setup" onClick={async () => {
+                console.log()
+            }}>test</button>
         </div>
     );
 }

@@ -1,35 +1,39 @@
 use crate::parameter::Parameter;
 
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PluginData {
-    pub name: String, 
+    pub name: String,
+    pub origin: String,
     pub version: Option<String>,
     pub author: Option<String>,
     pub description: Option<String>,
-    pub parameters: Vec<Parameter>
+    pub parameters: Vec<Parameter>,
 }
 
 impl PluginData {
-    pub fn new(name: String, version: Option<String>, author: Option<String>, description: Option<String>) -> PluginData {
+    pub fn new(
+        name: String,
+        origin: String,
+        version: Option<String>,
+        author: Option<String>,
+        description: Option<String>,
+    ) -> PluginData {
         PluginData {
             name,
+            origin,
             version,
             author,
             description,
-            parameters: Vec::new()
+            parameters: Vec::new(),
         }
     }
 
-    pub fn from_name(name: String) -> PluginData {
-        PluginData {
-            name,
-            version: None,
-            author: None,
-            description: None,
-            parameters: Vec::new()
-        }
-    }
-
-    pub fn update(&mut self, version: Option<String>, author: Option<String>, description: Option<String>) {
+    pub fn update(
+        &mut self,
+        version: Option<String>,
+        author: Option<String>,
+        description: Option<String>,
+    ) {
         self.version = version;
         self.author = author;
         self.description = description;

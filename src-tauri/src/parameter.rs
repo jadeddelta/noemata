@@ -1,23 +1,29 @@
-
-
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Parameter {
-    pub name: String, 
+    pub name: String,
     pub data_type: String,
-    pub description: String, 
+    pub description: String,
     pub value: Option<String>,
     pub default: Option<String>,
     pub required: bool,
 }
 
 impl Parameter {
-    pub fn new(name: String, data_type: String, description: String, value: Option<String>, default: Option<String>, required: bool) -> Self {
+    pub fn new(
+        name: String,
+        data_type: String,
+        description: String,
+        value: Option<String>,
+        default: Option<String>,
+        required: bool,
+    ) -> Self {
         Self {
             name,
             data_type,
             description,
             value,
             default,
-            required
+            required,
         }
     }
 
