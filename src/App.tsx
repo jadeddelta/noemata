@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
+import { ReactFlowProvider } from "@xyflow/react";
 import "./App.css";
 import SidebarContainer from "./components/sidebar/SidebarContainer";
 import Grid from "./components/grid/Grid";
@@ -15,8 +16,10 @@ function App() {
 
   return (
     <main className="container">
-      <SidebarContainer />
-      <Grid />  
+      <ReactFlowProvider>
+        <SidebarContainer />
+        <Grid />
+      </ReactFlowProvider>
     </main>
   );
 }
