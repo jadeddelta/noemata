@@ -2,11 +2,12 @@ import { useReactFlow } from "@xyflow/react";
 import { PluginBoxProps } from "./sidebarTypes";
 
 export default function PluginBox({ title, description, version, author }: PluginBoxProps) {
-    const { addNodes } = useReactFlow();
+    const { addNodes, getNodes } = useReactFlow();
 
     const handleClick = () => {
         addNodes({
-            id: title,
+            //TODO: we'll fix this up later for a more unique ID
+            id: title + getNodes().length,
             type: 'pluginNode',
             position: { x: 0, y: 0 },
             data: { label: title, name: "placeholder" }
